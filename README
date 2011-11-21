@@ -14,7 +14,7 @@ Usage
 The options are controlled with simple key commands:
 
   d     Next webcam device
-  f     Toggle fullscreen view
+  f     Toggle fullscreen view (non-win32 only)
   i     Invert the colors
   c     Next color pair
   l     Increment line size
@@ -34,10 +34,15 @@ For systems where Autotools is supported, simply use:
     $ make
     $ make install # possibly as root depending on prefix
 
+For Windows, install Mingw and OpenCV and make sure their `bin`
+directories are the PATH environment variable.  Then edit the first
+variable in `win32/makefile.win32` to point to the installation prefix
+for you OpenCV installation.  After, change into the `win32` directory
+and run `mingw32-make -f makefile.win32`.  If everything went properly
+there should be a `digimag.exe` file in that directory.
+
 Dependencies
 ------------
 
-OpenCV 2.3 is used to grab frames from the webcam and process them.
-You'll need at least the `cxcore` and `highgui` libraries.
-
-OpenCV can be optained from: http://opencv.willowgarage.com
+OpenCV 2.3 is used to grab frames from the webcam and process them. It
+can be optained from: http://opencv.willowgarage.com

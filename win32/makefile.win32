@@ -1,0 +1,34 @@
+# Adjust this to where you installed OpenCV
+OPENCV_INSTALL_PREFIX = C:/OpenCV/install
+
+CFLAGS = \
+	-D_WIN32 -DHAVE_WINDOWS=1 \
+	-I$(OPENCV_INSTALL_PREFIX)/include/opencv \
+	-I$(OPENCV_INSTALL_PREFIX)/include
+
+LDFLAGS = \
+	-L$(OPENCV_INSTALL_PREFIX)/lib \
+	-lopencv_calib3d231 \
+	-lopencv_contrib231 \
+	-lopencv_core231 \
+	-lopencv_features2d231 \
+	-lopencv_flann231 \
+	-lopencv_gpu231 \
+	-lopencv_highgui231 \
+	-lopencv_imgproc231 \
+	-lopencv_legacy231 \
+	-lopencv_ml231 \
+	-lopencv_objdetect231 \
+	-lopencv_ts231 \
+	-lopencv_video231
+
+SOURCES = \
+	../src/main.c \
+	../src/ini.c ../src/ini.h \
+	../src/config.c ../src/config.h
+
+digimag.exe: $(SOURCES)
+	gcc $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+clean:
+	del digimag.exe

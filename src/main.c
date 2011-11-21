@@ -151,7 +151,14 @@ int main(int argc, char *argv[])
 
   open_device(conf);
 
-  cvNamedWindow(conf->title, 0);
+#ifndef HAVE_WINDOWS
+  cvNamedWindow(conf->title, CV_WINDOW_NORMAL | CV_WINDOW_KEEPRATIO);
+#else
+  /* Windows doesn't support fullscreen and doesn't keep aspect ration
+   * even with CV_WINDOW_KEEPRATIO. */
+  cvNamedWindow(conf->title, CV_WINDOW_AUTOSIZE | CV_WINDOW_KEEPRATIO);
+#endif
+
   cvSetMouseCallback(conf->title, on_mouse_callback, conf);
   handle = cvGetWindowHandle(conf->title);
   name = cvGetWindowName(handle);

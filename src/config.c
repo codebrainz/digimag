@@ -23,6 +23,10 @@
  * TODO: ensure this file is portable
  */
 
+#ifdef HAVE_WINDOWS
+#include <windows.h>
+#endif
+
 #include <string.h>
 #include <errno.h>
 #include <libgen.h>
@@ -159,12 +163,30 @@ static int on_ini_entry(void *user, const char *section, const char *name,
 }
 
 
+#ifdef HAVE_WINDOWS
+BOOL FileExists(LPCTSTR szPath)
+{
+  DWORD dwAttrib = GetFileAttributes(szPath);
+  return (dwAttrib != INVALID_FILE_ATTRIBUTES);
+}
+#endif
+
+
 static void config_create(void)
 {
   /* FIXME */
   char  command[PATH_MAX + 11] = { 0 };
   char *path = strdup(config_get_path());
+#ifdef HAVE_WINDOWS
+  if (FileExists(dirname(path)))
+    {
+      free(path);
+      return;
+    }
+  snprintf(command, PATH_MAX + 11, "mkdir \"%s\"", dirname(path));
+#else
   snprintf(command, PATH_MAX + 11, "mkdir -p \"%s\"", dirname(path));
+#endif
   (void) system(command);
   free(path);
 }
