@@ -1,0 +1,22 @@
+Digital Magnifier
+=================
+
+The Digital Magnifier (digimag) program is a webcam viewing software
+designed to assist in reading text.  Using a standard webcam and some
+type of stand and appropriate lighting, this program can be used to
+magnify, increase contrast, invert, and apply higher contrast colors
+to text being viewed.  It also features an optional line across the
+view to help in focusing on a particular line of text.
+
+The options are controlled with simple key commands:
+
+  d     Next webcam device
+  f     Toggle fullscreen view
+  i     Invert the colors
+  c     Next color pair
+  l     Increment line size
+  space Toggle line visibility
+  esc   Exit the program
+
+There's a default set of high-contrast color sets which can be
+overriden in the configuration file.
