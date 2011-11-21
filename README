@@ -8,6 +8,9 @@ magnify, increase contrast, invert, and apply higher contrast colors
 to text being viewed.  It also features an optional line across the
 view to help in focusing on a particular line of text.
 
+Usage
+-----
+
 The options are controlled with simple key commands:
 
   d     Next webcam device
@@ -20,3 +23,21 @@ The options are controlled with simple key commands:
 
 There's a default set of high-contrast color sets which can be
 overriden in the configuration file.
+
+Installation
+------------
+
+For systems where Autotools is supported, simply use:
+
+    $ ./autogen.sh # if checked out from Git
+    $ ./configure
+    $ make
+    $ make install # possibly as root depending on prefix
+
+Dependencies
+------------
+
+OpenCV 2.3 is used to grab frames from the webcam and process them.
+You'll need at least the `cxcore` and `highgui` libraries.
+
+OpenCV can be optained from: http://opencv.willowgarage.com
