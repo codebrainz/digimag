@@ -1,2 +1,10 @@
-*.[ao]
-digimag
+*.o
+Makefile
+Makefile.in
+/aclocal.m4
+/autom4te.cache/
+/build-aux/
+/config.*
+/configure
+/src/digimag
+.deps/
