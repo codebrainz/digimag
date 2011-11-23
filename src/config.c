@@ -177,6 +177,7 @@ static void config_create(void)
   /* FIXME */
   char  command[PATH_MAX + 11] = { 0 };
   char *path = strdup(config_get_path());
+  int ret;
 #ifdef HAVE_WINDOWS
   if (FileExists(dirname(path)))
     {
@@ -187,7 +188,8 @@ static void config_create(void)
 #else
   snprintf(command, PATH_MAX + 11, "mkdir -p \"%s\"", dirname(path));
 #endif
-  (void) system(command);
+  if (system(command))
+    fprintf(stderr, "warning: there was a problem creating config directory.\n");
   free(path);
 }
 
