@@ -9,7 +9,7 @@ AC_PROG_CC
 
 AC_CHECK_HEADERS(ctype.h errno.h libgen.h stdio.h string.h sys/stat.h)
 
-PKG_CHECK_MODULES([OPENCV], [opencv >= 2.3])
+PKG_CHECK_MODULES([OPENCV], [opencv >= 2.1])
 
 AC_CONFIG_FILES([
 	Makefile

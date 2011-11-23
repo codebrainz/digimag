@@ -37,12 +37,12 @@ For systems where Autotools is supported, simply use:
 For Windows, install Mingw and OpenCV and make sure their `bin`
 directories are the PATH environment variable.  Then edit the first
 variable in `win32/makefile.win32` to point to the installation prefix
-for you OpenCV installation.  After, change into the `win32` directory
+for your OpenCV installation.  After, change into the `win32` directory
 and run `mingw32-make -f makefile.win32`.  If everything went properly
 there should be a `digimag.exe` file in that directory.
 
 Dependencies
 ------------
 
-OpenCV 2.3 is used to grab frames from the webcam and process them. It
+OpenCV 2.1 is used to grab frames from the webcam and process them. It
 can be optained from: http://opencv.willowgarage.com

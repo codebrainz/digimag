@@ -152,11 +152,11 @@ int main(int argc, char *argv[])
   open_device(conf);
 
 #ifndef HAVE_WINDOWS
-  cvNamedWindow(conf->title, CV_WINDOW_NORMAL | CV_WINDOW_KEEPRATIO);
+  cvNamedWindow(conf->title, CV_WINDOW_NORMAL);
 #else
-  /* Windows doesn't support fullscreen and doesn't keep aspect ration
-   * even with CV_WINDOW_KEEPRATIO. */
-  cvNamedWindow(conf->title, CV_WINDOW_AUTOSIZE | CV_WINDOW_KEEPRATIO);
+  /* Windows doesn't support fullscreen and doesn't maintain aspect
+   * ratio. */
+  cvNamedWindow(conf->title, CV_WINDOW_AUTOSIZE);
 #endif
 
   cvSetMouseCallback(conf->title, on_mouse_callback, conf);
